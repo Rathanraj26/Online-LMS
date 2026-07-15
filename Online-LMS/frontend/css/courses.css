@@ -1,0 +1,93 @@
+/* ============================================================
+   courses.css — Course catalog, detail & learning-player screens
+   ============================================================ */
+
+.catalog-toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.catalog-toolbar .search-box {
+  flex: 1;
+  min-width: 220px;
+  position: relative;
+}
+.catalog-toolbar .search-box i {
+  position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  color: var(--ink-300);
+}
+.catalog-toolbar .search-box input { padding-left: 38px; }
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* ---------------- Course detail hero ---------------- */
+.course-hero {
+  background: linear-gradient(135deg, var(--ink-900), #26365f);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  margin-bottom: 28px;
+}
+.course-hero .course-hero-category {
+  color: var(--accent);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.course-hero h1 { color: #fff; font-size: 2rem; max-width: 640px; }
+.course-hero p { color: rgba(255,255,255,0.75); max-width: 620px; }
+.course-hero .instructor-chip { display: flex; align-items: center; gap: 10px; margin-top: 18px; }
+.course-hero .instructor-chip .avatar-sm {
+  width: 32px; height: 32px; border-radius: 50%; background: var(--accent);
+  color: var(--ink-900); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem;
+}
+
+.curriculum-list .lesson-row {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-md);
+  margin-bottom: 10px; background: var(--paper-0);
+}
+.curriculum-list .lesson-row .lesson-icon {
+  width: 34px; height: 34px; border-radius: 8px;
+  background: var(--brand-light); color: var(--brand);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.curriculum-list .lesson-row.completed .lesson-icon { background: var(--success-light); color: var(--success); }
+.curriculum-list .lesson-row .lesson-module-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.curriculum-list .lesson-row .lesson-title { font-weight: 600; font-size: 0.92rem; }
+.curriculum-list .lesson-row .lesson-duration { font-size: 0.78rem; color: var(--ink-600); margin-left: auto; }
+
+/* ---------------- Learning / player layout ---------------- */
+.learning-shell { display: grid; grid-template-columns: 1fr 320px; gap: 22px; }
+.video-frame {
+  width: 100%; aspect-ratio: 16/9; background: #0b1220;
+  border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.6); font-size: 2.2rem;
+}
+.lesson-playlist { max-height: 640px; overflow-y: auto; }
+.lesson-playlist .playlist-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px; border-radius: var(--radius-md);
+  cursor: pointer; font-size: 0.86rem;
+}
+.lesson-playlist .playlist-item:hover { background: var(--paper-100); }
+.lesson-playlist .playlist-item.active { background: var(--brand-light); color: var(--brand); font-weight: 700; }
+
+@media (max-width: 900px) {
+  .learning-shell { grid-template-columns: 1fr; }
+}

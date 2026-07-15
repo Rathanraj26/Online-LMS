@@ -1,0 +1,56 @@
+/* ============================================================
+   quiz.css — Quiz-taking interface & results
+   ============================================================ */
+
+.quiz-shell { max-width: 720px; margin: 0 auto; }
+
+.quiz-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 22px;
+}
+.quiz-timer {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--warning-light); color: var(--warning);
+  padding: 8px 16px; border-radius: 999px; font-weight: 700; font-size: 0.9rem;
+}
+.quiz-timer.time-critical { background: var(--danger-light); color: var(--danger); }
+
+.quiz-progress-track { display: flex; gap: 6px; margin-bottom: 26px; }
+.quiz-progress-track .dot { flex: 1; height: 5px; border-radius: 3px; background: var(--paper-100); }
+.quiz-progress-track .dot.done { background: var(--brand); }
+.quiz-progress-track .dot.current { background: var(--accent); }
+
+.question-card { padding: 30px; }
+.question-card .question-number { color: var(--ink-600); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+.question-card .question-text { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 24px; }
+
+.option-list { display: flex; flex-direction: column; gap: 12px; }
+.option-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px; border: 1.5px solid var(--line); border-radius: var(--radius-md);
+  cursor: pointer; transition: all 0.12s ease; font-size: 0.94rem;
+}
+.option-item:hover { border-color: var(--brand); background: var(--brand-light); }
+.option-item.selected { border-color: var(--brand); background: var(--brand-light); font-weight: 600; }
+.option-item .option-letter {
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem; font-weight: 700; flex-shrink: 0; color: var(--ink-600);
+}
+.option-item.selected .option-letter { background: var(--brand); border-color: var(--brand); color: #fff; }
+
+.quiz-nav-row { display: flex; justify-content: space-between; margin-top: 24px; }
+
+/* ---------------- Results ---------------- */
+.result-hero { text-align: center; padding: 50px 30px; }
+.result-hero .score-ring {
+  width: 150px; height: 150px; border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+  background: conic-gradient(var(--brand) calc(var(--pct, 0) * 1%), var(--paper-100) 0);
+  position: relative;
+}
+.result-hero .score-ring::before {
+  content: ""; position: absolute; width: 122px; height: 122px; border-radius: 50%; background: var(--paper-0);
+}
+.result-hero .score-ring .score-text { position: relative; font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; }

@@ -1,0 +1,26 @@
+/* ============================================================
+   responsive.css — Global breakpoint adjustments
+   (page-specific responsive rules live alongside their pages'
+   own stylesheets; this file covers shared/base components)
+   ============================================================ */
+
+@media (max-width: 1100px) {
+  .catalog-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+  .navbar-rr { padding: 0 16px; }
+  .navbar-rr .nav-links { display: none; }
+  .content-body { padding: 16px; }
+  .course-hero { padding: 26px; }
+  .course-hero h1 { font-size: 1.5rem; }
+  .stat-card { padding: 16px; }
+  .auth-form-side { padding: 24px; }
+  .quiz-shell { padding: 0 4px; }
+}
+
+@media (max-width: 520px) {
+  .catalog-grid { grid-template-columns: 1fr; }
+  .quiz-nav-row { flex-direction: column; gap: 10px; }
+  .quiz-nav-row .btn-rr { width: 100%; }
+}
